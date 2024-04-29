@@ -5,9 +5,10 @@ pipeline {
         }
 }
     stages {
-     stage(vpc_deploy){
+     stage('vpc_deploy'){
        steps {
-        "terraform apply -auto-approve"
+         echo "terraform apply command going to apply"
+          "terraform apply -auto-approve"
           }
       }
 }
