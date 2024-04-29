@@ -1,12 +1,12 @@
 pipeline {
-  agent {
-    node {
-        label 'jenkins-agent-1'
-        }
+   agent  any {
+  //   node {
+  //       label 'jenkins-agent-1'
+  //       }
 }
     stages {
-     stage('vpc_deploy'){
-       steps {
+      stage('vpc_deploy'){
+        steps {
          
          'terraform apply -auto-approve'
           }
