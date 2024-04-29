@@ -1,8 +1,10 @@
 pipeline {
   agent {
     node {
-      label "jenkins-agent-1"
-      }
+        label 'jenkins-agent-1'
+        customWorkspace '/some/other/path'
+    }
+}
     stages {
      stage(vpc_deploy){
        steps {
@@ -11,5 +13,4 @@ pipeline {
       }
 }
 
-}
 }
