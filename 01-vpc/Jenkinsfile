@@ -8,7 +8,7 @@ pipeline {
       stage('vpc_deploy'){
         steps {
          
-         'terraform apply -auto-approve'
+        echo "hello"
           }
       }
 }
