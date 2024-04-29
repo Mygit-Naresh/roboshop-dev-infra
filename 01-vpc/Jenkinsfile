@@ -1,9 +1,9 @@
 pipeline {
-   agent  any {
+   agent  any
   //   node {
   //       label 'jenkins-agent-1'
   //       }
-}
+
     stages {
       stage('vpc_deploy'){
         steps {
