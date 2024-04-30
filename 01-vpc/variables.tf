@@ -14,5 +14,5 @@ variable "db_subnet" {
     default = "dev"
  }
 variable  "project" {
-    default = "roboshop"
+    default = "useterraform"
 } 

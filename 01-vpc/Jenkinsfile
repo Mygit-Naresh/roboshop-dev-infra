@@ -12,10 +12,9 @@ pipeline {
            sh """
            cd '01-vpc'
            terraform init
-           terraform apply -auto-approve
-           
            """
           }
+          
       }
       }
 }
