@@ -8,13 +8,15 @@ pipeline {
       stage('vpc_deploy'){
 
         steps {
+          script {
            sh """
+           cd '01-vpc'
            terraform init
-           cd 01-vpc
            terraform apply -auto-approve
            
            """
           }
+      }
       }
 }
 
