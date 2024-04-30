@@ -9,6 +9,7 @@ pipeline {
 
         steps {
            sh """
+           terraform init
            cd 01-vpc
            terraform apply -auto-approve
            
