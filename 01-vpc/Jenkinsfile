@@ -38,6 +38,8 @@ stage('terraform approve'){
                 parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
                 }
+  }
+}
 
         steps {
           script {
@@ -47,6 +49,5 @@ stage('terraform approve'){
            """
           }
       }
-}
-}
+    }
 }
