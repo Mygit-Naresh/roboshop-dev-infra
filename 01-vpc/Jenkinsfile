@@ -53,6 +53,27 @@ stage('terraform approve'){
           }
       }
     }
+stage('terraform destroy'){
+  when {
+             expression { params.TERRAFORMACTION == 'destroy' }
+        }
+ input {
+                message "approve to continue terraform destroy infra"
+                ok "destroy"
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'TERRAFORM', defaultValue: 'destroy', description: 'approve to continue terraform destroy infra?')
+                }
+ }
 
+        steps {
+          script {
+           sh """
+           cd 01-vpc
+           terraform destroy -auto-approve
+           """
+          }
+      }
+    }
 }
 }
