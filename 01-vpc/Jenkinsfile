@@ -34,7 +34,7 @@ stage('terraform plan'){
 }
 //  when {
 //              expression { params.TERRAFORMACTION == 'deploy' }
-        }
+      
 stage('terraform approve'){
   when {
              expression { 
@@ -87,4 +87,5 @@ stage('terraform destroy'){
           }
       }
     }
+}
 }
