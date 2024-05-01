@@ -7,7 +7,7 @@ pipeline {
 options {
                 timeout(time: 1, unit: 'HOURS') 
             }
-parameters { choice(name: 'TERRAFORMACTION', actions: ['deploy', 'destroy'], description: 'terraform infra creation') }
+parameters { choice(name: 'TERRAFORMACTION', choices: ['deploy', 'destroy'], description: 'terraform infra creation') }
     stages {
 stage('init'){
 
