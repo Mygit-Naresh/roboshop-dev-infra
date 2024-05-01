@@ -5,7 +5,7 @@ pipeline {
         }
 }
     stages {
-      stage('init'){
+stage('init'){
 
         steps {
           script {
@@ -23,6 +23,24 @@ stage('terraform plan'){
            sh """
            cd 01-vpc
            terraform plan
+           """
+          }
+      }
+}
+stage('terraform approve'){
+  input(
+    message: 'select approve or deny for changes?',
+    ok: 'Yes', 
+    parameters: [
+      booleanParam(defaultValue: true, description: 'select approve to apply changes.',name: 'Yes?')
+    ]
+  )
+
+        steps {
+          script {
+           sh """
+           cd 01-vpc
+           terraform apply -auto-approve
            """
           }
       }
