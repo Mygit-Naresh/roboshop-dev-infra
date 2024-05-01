@@ -5,16 +5,15 @@ pipeline {
   //       }
 
     stages {
-      stage('vpc_deploy'){
+      stage('init'){
 
         steps {
           script {
            sh """
-           cd '01-vpc'
            terraform init
            """
           }
-          
+
       }
       }
 }
