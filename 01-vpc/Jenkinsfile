@@ -14,8 +14,17 @@ pipeline {
            terraform init -reconfigure
            """
           }
-
       }
+}
+stage('terraform plan'){
+
+        steps {
+          script {
+           sh """
+           cd 01-vpc
+           terraform plan
+           """
+          }
       }
 }
 }
