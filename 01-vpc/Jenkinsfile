@@ -31,10 +31,11 @@ stage('terraform plan'){
           }
       }
 }
-stage('terraform approve'){
-  when {
+ when {
              expression { params.TERRAFORMACTION == 'deploy' }
         }
+stage('terraform approve'){
+ 
  input {
                 message "approve to continue terraform plan infra"
                 ok "apply"
@@ -53,16 +54,17 @@ stage('terraform approve'){
           }
       }
     }
-stage('terraform destroy'){
-  when {
+      when {
              expression { params.TERRAFORMACTION == 'destroy' }
         }
+stage('terraform destroy'){
+
  input {
                 message "approve to continue terraform destroy infra"
                 ok "destroy"
                 submitter "alice,bob"
                 parameters {
-                    string(name: 'TERRAFORM', defaultValue: 'destroy', description: 'approve to continue terraform destroy infra?')
+                    string(name: 'TERRAFORM', defaultValue: 'apply or deny', description: 'approve to continue terraform destroy infra?')
                 }
  }
 
