@@ -3,7 +3,7 @@ pipeline {
      node {
         label 'jenkins-agent-1'
         }
-
+}
     stages {
       stage('init'){
 
@@ -17,6 +17,5 @@ pipeline {
 
       }
       }
-}
 }
 }
