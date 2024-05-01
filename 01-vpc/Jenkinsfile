@@ -32,11 +32,11 @@ stage('terraform plan'){
 }
 stage('terraform approve'){
  input {
-                message "Should we continue?"
-                ok "Yes, we should."
+                message "approve to continue terraform plan infra"
+                ok "apply"
                 submitter "alice,bob"
                 parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                    string(name: 'TERRAFORM', defaultValue: 'apply or deny', description: 'approve to continue terraform plan infra?')
                 }
  }
 
