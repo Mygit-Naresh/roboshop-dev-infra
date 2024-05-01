@@ -7,7 +7,7 @@ pipeline {
 options {
                 timeout(time: 1, unit: 'HOURS') 
             }
-parameters { choice(name: 'TERRAFORMACTION', actions: ['deploy', 'destroy',], description: 'terraform infra creation') }
+parameters { choice(name: 'TERRAFORMACTION', actions: ['deploy', 'destroy'], description: 'terraform infra creation') }
     stages {
 stage('init'){
 
@@ -33,8 +33,8 @@ stage('terraform plan'){
 }
 stage('terraform approve'){
   when {
-    params.TERRAFORMACTION == "deploy"
-  }
+             expression { params.TERRAFORMACTION == 'deploy' }
+        }
  input {
                 message "approve to continue terraform plan infra"
                 ok "apply"
