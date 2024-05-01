@@ -2,7 +2,7 @@ variable "environment" {
    default = "dev"
 }
 variable "project" {
-  default = "roboshop"
+  default = "useterraform"
 }
 variable "sg_name" {
    default = "mongodb"

@@ -1,5 +1,5 @@
 module "web_alb" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "web-alb"
@@ -8,7 +8,7 @@ module "web_alb" {
 }
 
 module "app-lb" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "app-lb"
@@ -17,7 +17,7 @@ module "app-lb" {
 }
 
 module "mongodb" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "mongodb"
@@ -25,7 +25,7 @@ module "mongodb" {
   vpc_id = data.aws_ssm_parameter.vpc_id.value
  }
 module "user" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "user"
@@ -35,7 +35,7 @@ module "user" {
 
 }
 module "catalogue" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "catalogue"
@@ -44,7 +44,7 @@ module "catalogue" {
 
 }
 module "redis" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "redis"
@@ -53,7 +53,7 @@ module "redis" {
 
 }
 module "mysql" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "mysql"
@@ -62,7 +62,7 @@ module "mysql" {
  
 }
 module "rabbitmq" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "rabbitmq"
@@ -71,7 +71,7 @@ module "rabbitmq" {
   
 }
 module "payment" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "payment"
@@ -80,7 +80,7 @@ module "payment" {
  
 }
 module "cart" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "cart"
@@ -89,7 +89,7 @@ module "cart" {
  
 }
 module "shipping" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "shipping"
@@ -98,7 +98,7 @@ module "shipping" {
   
 }
 module "ratings" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "ratings"
@@ -107,7 +107,7 @@ module "ratings" {
   
 }
 module "web" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "web"
@@ -116,7 +116,7 @@ module "web" {
 
 }
 module "vpn" {
-  source = "../../terraform/terraform-aws-securitygroups-module"
+  source = "git::https://github.com/Mygit-Naresh/modules.git"
   environment = var.environment
   project = var.project
   sg_name =  "vpn"
