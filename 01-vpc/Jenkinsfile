@@ -7,6 +7,9 @@ pipeline {
 options {
                 timeout(time: 1, unit: 'HOURS') 
             }
+parameters {
+  action actions: ['deploy_infra', 'destroy_infra'], name: 'terraform'
+}
     stages {
 stage('init'){
 
@@ -31,6 +34,9 @@ stage('terraform plan'){
       }
 }
 stage('terraform approve'){
+  when {
+    action.param == "deploy_infra"
+  }
  input {
                 message "approve to continue terraform plan infra"
                 ok "apply"
