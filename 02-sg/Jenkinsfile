@@ -1,0 +1,56 @@
+pipeline {
+   agent {
+     node {
+        label 'jenkins-agent-1'
+        }
+}
+options {
+                timeout(time: 1, unit: 'HOURS')
+                ansiColor('xterm')
+            }
+    
+    stages {
+stage('init'){
+
+        steps {
+          script {
+           sh """
+           cd 02-sg
+           terraform init -reconfigure
+           """
+          }
+      }
+}
+stage('terraform plan'){
+
+        steps {
+          script {
+           sh """
+           cd 02-sg
+           terraform plan
+           """
+          }
+      }
+}
+stage('terraform approve'){
+ input {
+                message "approve to continue terraform plan security groups"
+                ok "apply"
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'TERRAFORM', defaultValue: 'apply or deny', description: 'approve to continue terraform plan infra?')
+                }
+ }
+
+        steps {
+          script {
+           sh """
+           cd 02-sg
+           terraform apply -auto-approve
+           """
+          }
+      }
+    }
+
+}
+}
