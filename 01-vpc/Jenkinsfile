@@ -6,6 +6,7 @@ pipeline {
 }
 options {
                 timeout(time: 1, unit: 'HOURS') 
+                ansiColor('xterm')
             }
 parameters { choice(name: 'TERRAFORMACTION', choices: ['deploy', 'destroy'], description: 'terraform infra creation') }
     stages {
@@ -31,10 +32,15 @@ stage('terraform plan'){
           }
       }
 }
- when {
-             expression { params.TERRAFORMACTION == 'deploy' }
+//  when {
+//              expression { params.TERRAFORMACTION == 'deploy' }
         }
 stage('terraform approve'){
+  when {
+             expression { 
+              params.TERRAFORMACTION == 'destroy' 
+                       }
+        }
  
  input {
                 message "approve to continue terraform plan infra"
@@ -54,10 +60,14 @@ stage('terraform approve'){
           }
       }
     }
-      when {
-             expression { params.TERRAFORMACTION == 'destroy' }
-        }
+     
 stage('terraform destroy'){
+
+   when {
+             expression { 
+              params.TERRAFORMACTION == 'destroy' 
+                       }
+        }
 
  input {
                 message "approve to continue terraform destroy infra"
@@ -77,5 +87,4 @@ stage('terraform destroy'){
           }
       }
     }
-}
 }
