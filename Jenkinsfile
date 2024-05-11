@@ -47,8 +47,9 @@ stage('vpc-provision'){
           }
       }
 }
+stage('parallel running databses-appLB-ACM') {
 parallel {
-    stage('parallel running databses-appLB-ACM') {
+    
   stage('databases-provision'){
 
         steps {
@@ -61,7 +62,7 @@ parallel {
           }
       }
 }
-stage('app-lb-provision'){
+  stage('app-lb-provision'){
 
         steps {
           script {
@@ -73,7 +74,7 @@ stage('app-lb-provision'){
           }
       }
 }
-stage('acm-provision'){
+  stage('acm-provision'){
 
         steps {
           script {
