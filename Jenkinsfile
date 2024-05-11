@@ -9,7 +9,7 @@ options {
                 ansiColor('xterm')
                 disableConcurrentBuilds()
             }
-parameters { choice(name: 'TERRAFORMACTION', choices: ['deploy', 'destroy'], description: 'terraform infra creation') }
+parameters { choice(name: 'TERRAFORMACTION', choices: ['createInfra', 'destroyInfra'], description: 'terraform infra creation') }
     stages {
 stage('vpc-provision'){
 
