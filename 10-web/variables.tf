@@ -12,7 +12,7 @@ variable "common_tags" {
   }
 }
 variable "project" {
-  default = "roboshop"
+  default = "useterraform"
 }
 variable "environment" {
   default = "dev"
