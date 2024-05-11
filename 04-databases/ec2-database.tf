@@ -199,7 +199,7 @@ resource "null_resource" "rabbitmq" {
 }
 #################### ROUTE 53 records for dev #############################
 module "mongodb-dev" {
-  source  = "../../terraform/terraform-aws-route53-module"
+  source  = "git::https://github.com/Mygit-Naresh/terraform-aws-route53-module.git"
   zone_id = var.zone_id
   name    = "mongodb-dev"
   type    = "A"
@@ -207,7 +207,7 @@ module "mongodb-dev" {
   records = ["${module.mongodb_instance.private_ip}"]
 }
 module "redis-dev" {
-  source  = "../../terraform/terraform-aws-route53-module"
+  source  = "git::https://github.com/Mygit-Naresh/terraform-aws-route53-module.git"
   zone_id = var.zone_id
   name    = "redis-dev"
   type    = "A"
@@ -215,7 +215,7 @@ module "redis-dev" {
   records = ["${module.redis_instance.private_ip}"]
 }
 module "mysql-dev" {
-  source  = "../../terraform/terraform-aws-route53-module"
+  source  = "git::https://github.com/Mygit-Naresh/terraform-aws-route53-module.git"
   zone_id = var.zone_id
   name    = "mysql-dev"
   type    = "A"
@@ -223,7 +223,7 @@ module "mysql-dev" {
   records = ["${module.mysql_instance.private_ip}"]
 }
 module "rabbitmq-dev" {
-  source  = "../../terraform/terraform-aws-route53-module"
+  source  = "git::https://github.com/Mygit-Naresh/terraform-aws-route53-module.git"
   zone_id = var.zone_id
   name    = "rabbitmq-dev"
   type    = "A"
