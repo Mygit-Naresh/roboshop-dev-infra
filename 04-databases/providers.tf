@@ -8,7 +8,7 @@ terraform {
   }
  backend "s3" {
     bucket = "eternal-s3-dev"
-    key    = "roboshop.databases"
+    key    = "roboshop.databases-pipeline"
     region = "us-east-1"
     dynamodb_table = "s3-table-dev"
     }

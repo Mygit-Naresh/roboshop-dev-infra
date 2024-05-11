@@ -8,7 +8,7 @@ terraform {
   }
  backend "s3" {
     bucket = "eternal-s3-dev"
-    key    = "web_alb"
+    key    = "web_alb-pipeline"
     region = "us-east-1"
     dynamodb_table = "s3-table-dev"
     }
