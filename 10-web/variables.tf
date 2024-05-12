@@ -12,7 +12,7 @@ variable "common_tags" {
   }
 }
 variable "project" {
-  default = "useterraform"
+  default = "eternalplace"
 }
 variable "environment" {
   default = "dev"

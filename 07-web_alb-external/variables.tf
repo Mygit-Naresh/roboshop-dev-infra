@@ -2,7 +2,7 @@ variable "environment" {
   default = "dev"
 }
 variable "project" {
-  default = "useterraform"
+  default = "eternalplace"
 }
 variable "common_tags" {
   type = map(string)
