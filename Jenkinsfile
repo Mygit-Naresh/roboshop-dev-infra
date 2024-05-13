@@ -50,7 +50,7 @@ stage('vpc-provision'){
 stage('parallel running databses-appLB-ACM') {
 parallel {
   
-  stage('app-lb-provision'){
+stage('app-lb-provision'){
 
         steps {
           script {
@@ -75,7 +75,7 @@ stage('acm-provision'){
       }
 }
 }
-
+}
     
 stage('databases-provision'){
 //     input {
