@@ -78,14 +78,14 @@ stage('acm-provision'){
 }
     
 stage('databases-provision'){
-//     input {
-//                 message "approve to continue terraform database infra, You must add VPN security group jenkins agent"
-//                 ok "Ok"
-//                 submitter "alice,bob"
-//                 parameters {
-//                     string(name: 'Database_deployment', defaultValue: 'Ok or deny', description: 'approve to continue terraform database infra?')
-//                 }
-//  }
+    input {
+                message "approve to continue terraform database infra, You must add VPN security group jenkins agent"
+                ok "Ok"
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'Database_deployment', defaultValue: 'Ok or deny', description: 'approve to continue terraform database infra?')
+               }
+ }
 
 
         steps {
@@ -98,7 +98,7 @@ stage('databases-provision'){
           }
       }
 }
-}
+
 stage('web_alb_external-provision'){
 
         steps {
@@ -123,7 +123,7 @@ stage('cdn-provision'){
           }
       }
 }
+}
     }
 
 
-}
