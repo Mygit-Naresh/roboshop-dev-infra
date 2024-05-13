@@ -21,3 +21,6 @@ variable "zone_id" {
 # variable "password" {
    
 # }
+variable "network_interface_id" {
+   default = "eni-07bd54cbdc0bc75e1"
+}

@@ -27,3 +27,6 @@ data "aws_ssm_parameter" "ami_password" {
 data "aws_ssm_parameter" "rabbitmq_sg_id" {
     name = "/${var.project}/${var.environment}/rabbitmq_sg_id"
 }
+data "aws_ssm_parameter" "vpn_sg_id" {
+    name = "/${var.project}/${var.environment}/vpn_sg_id"
+}

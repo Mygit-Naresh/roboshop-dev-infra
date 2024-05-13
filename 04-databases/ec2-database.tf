@@ -1,3 +1,8 @@
+resource "aws_network_interface_sg_attachment" "vpn_sg_jenkinsagent_attachment" {
+  security_group_id    = data.aws_ssm_parameter.vpn_sg_id.value
+  network_interface_id =  var.network_interface_id
+}
+
 module "mongodb_instance" {
   source                 = "terraform-aws-modules/ec2-instance/aws"
   name                   = "mongodb"
