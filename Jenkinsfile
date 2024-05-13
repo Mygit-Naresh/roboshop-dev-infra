@@ -47,7 +47,7 @@ stage('vpc-provision'){
           }
       }
 }
-stage('parallel running databses-appLB-ACM') {
+
 parallel {
   
   stage('app-lb-provision'){
@@ -97,7 +97,7 @@ stage('databases-provision'){
            """
           }
       }
-}
+
 }
 stage('web_alb_external-provision'){
 
