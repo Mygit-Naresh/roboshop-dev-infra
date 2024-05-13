@@ -49,28 +49,7 @@ stage('vpc-provision'){
 }
 stage('parallel running databses-appLB-ACM') {
 parallel {
-    
-  stage('databases-provision'){
-    input {
-                message "approve to continue terraform database infra, You must add VPN security group jenkins agent"
-                ok "Ok"
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'Database_deployment', defaultValue: 'Ok or deny', description: 'approve to continue terraform database infra?')
-                }
- }
-
-
-        steps {
-          script {
-           sh """
-           cd 04-databases
-           terraform init -reconfigure
-           terraform apply -auto-approve
-           """
-          }
-      }
-}
+  
   stage('app-lb-provision'){
 
         steps {
@@ -95,6 +74,29 @@ parallel {
           }
       }
 }
+}
+
+    
+  stage('databases-provision'){
+    input {
+                message "approve to continue terraform database infra, You must add VPN security group jenkins agent"
+                ok "Ok"
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'Database_deployment', defaultValue: 'Ok or deny', description: 'approve to continue terraform database infra?')
+                }
+ }
+
+
+        steps {
+          script {
+           sh """
+           cd 04-databases
+           terraform init -reconfigure
+           terraform apply -auto-approve
+           """
+          }
+      }
 }
 }
 stage('web_alb_external-provision'){
