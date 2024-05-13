@@ -62,30 +62,30 @@ parallel {
           }
       }
 }
-  stage('acm-provision'){
+stage('acm-provision'){
 
-        steps {
-          script {
-           sh """
+  steps {
+    script {
+      sh """
            cd 06-acm
            terraform init -reconfigure
            terraform apply -auto-approve
-           """
+      """
           }
       }
 }
 }
 
     
-  stage('databases-provision'){
-    input {
-                message "approve to continue terraform database infra, You must add VPN security group jenkins agent"
-                ok "Ok"
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'Database_deployment', defaultValue: 'Ok or deny', description: 'approve to continue terraform database infra?')
-                }
- }
+stage('databases-provision'){
+//     input {
+//                 message "approve to continue terraform database infra, You must add VPN security group jenkins agent"
+//                 ok "Ok"
+//                 submitter "alice,bob"
+//                 parameters {
+//                     string(name: 'Database_deployment', defaultValue: 'Ok or deny', description: 'approve to continue terraform database infra?')
+//                 }
+//  }
 
 
         steps {
