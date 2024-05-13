@@ -10,9 +10,9 @@ options {
                 disableConcurrentBuilds()
             }
 // parameters { choice(name: 'TERRAFORMACTION', choices: ['createInfra', 'destroyInfra'], description: 'terraform infra creation') }
-//  Please do deprovision the applications first like CATALOGUE, CART and others    
+//  Please do dedestroy the applications first like CATALOGUE, CART and others    
     stages {
-        stage('cdn-provision'){
+        stage('cdn-destroy'){
 
         steps {
           script {
@@ -24,7 +24,7 @@ options {
           }
       }
 }
-stage('web_alb_external-provision'){
+stage('web_alb_external-destroy'){
 
         steps {
           script {
@@ -36,7 +36,7 @@ stage('web_alb_external-provision'){
           }
       }
 }
-  stage('acm-provision'){
+  stage('acm-destroy'){
 
         steps {
           script {
@@ -48,7 +48,7 @@ stage('web_alb_external-provision'){
           }
       }
 }
-  stage('app-lb-provision'){
+  stage('app-lb-destroy'){
 
         steps {
           script {
@@ -60,7 +60,7 @@ stage('web_alb_external-provision'){
           }
       }
 }
-  stage('databases-provision'){
+  stage('databases-destroy'){
 
         steps {
           script {
@@ -72,7 +72,7 @@ stage('web_alb_external-provision'){
           }
       }
 }
- stage('vpn-provision'){
+ stage('vpn-destroy'){
 
         steps {
           script {
@@ -84,7 +84,7 @@ stage('web_alb_external-provision'){
           }
       }
 }
- stage('SG-provision'){
+ stage('SG-destroy'){
 
         steps {
           script {
@@ -96,7 +96,7 @@ stage('web_alb_external-provision'){
           }
       }
 }
-stage('vpc-provision'){
+stage('vpc-destroy'){
 
         steps {
           script {
